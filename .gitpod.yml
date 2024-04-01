@@ -1,0 +1,33 @@
+tasks:
+  - name: Setup Tools
+    init: |
+      set -e  # Exit immediately if a command exits with a non-zero status.
+
+      # Update package lists
+      sudo apt-get update
+
+      # Install tree utility
+      if ! command -v tree &> /dev/null; then
+        sudo apt-get update && sudo apt-get install -y tree
+      fi
+
+      ./bin/aws_cli_install.sh
+
+      ./bin/terraform_cli_install.sh
+
+      ./bin/powershell_install.sh
+      
+      ./bin/cdk_install.sh
+
+      ./bin/pulumi_install.sh
+      export PATH="$PATH:/home/gitpod/.pulumi/bin"
+
+      ./bin/Kubernetes_install.sh
+
+      ./bin/zsh_install.sh
+
+    command: |
+      export GITPOD_INIT=1
+      ./bin/check_installs.sh
+      unset GITPOD_INIT
+      exec zsh -l
