@@ -2,7 +2,7 @@
 
  # Install custom fonts
         mkdir -p $HOME/.local/share/fonts
-        cp /workspace/AWS-Examples/Fonts/*.ttf $HOME/.local/share/fonts/
+        cp /workspace/Splunk-Enterprise-AWS/Fonts/*.ttf $HOME/.local/share/fonts/
         fc-cache -fv
 
 # Install Zsh
