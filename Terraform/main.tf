@@ -12,7 +12,7 @@ provider "aws" {
 }
 resource "aws_instance" "splunk_server" {
   ami                         = "ami-0e26cf8ef2ab56e1c" #Specific for eu-west-2
-  instance_type               = "t2.Large"
+  instance_type               = "t2.large"
   key_name                    = "splunk_server"
   tags                        = { Name = "splunk_server" }
   associate_public_ip_address = true
